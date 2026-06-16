@@ -152,16 +152,29 @@
       margin-bottom: 0;
     }
 
-    /* Full-width dashed horizontal rule */
+    /* Full-width animated dashed line */
     .h-rule {
       position: relative;
       width: 100vw;
       left: 50%; transform: translateX(-50%);
       border: none;
-      border-top: 2px dashed var(--rose);
-      opacity: .55;
+      height: 2px;
+      background-image: repeating-linear-gradient(
+        to right,
+        rgba(162,29,110,.6) 0,
+        rgba(162,29,110,.6) 10px,
+        transparent 10px,
+        transparent 20px
+      );
+      background-size: 20px 2px;
+      background-repeat: repeat-x;
+      animation: slideDash 1.2s linear infinite;
       margin: -4px 0 -10px;
       z-index: 0;
+    }
+    @keyframes slideDash {
+      from { background-position: 0 0; }
+      to   { background-position: 20px 0; }
     }
 
     .title-cursive {
